@@ -589,6 +589,7 @@ class AppController extends Controller
         $this->loadModel('Seo');
         $default = $this->Seo->find('first', ["conditions" => ['page' => null]])['Seo'];
         $current_url = $this->here;
+        $current_url = str_replace("'", "\'", $current_url);
         $get_page = [];
         $condition = ["'" . $current_url . "' LIKE CONCAT(page, '%')"];
 

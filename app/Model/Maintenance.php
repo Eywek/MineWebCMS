@@ -4,6 +4,7 @@ class Maintenance extends AppModel
 {
     function checkMaintenance($url, $utilComponent)
     {
+        $url = str_replace("'", "\'", $url);
         $use_sqlite = $utilComponent->useSqlite();
 
         $condition = ["'" . $url . "' LIKE CONCAT(Maintenance.url, '%')", "active" => 1];
